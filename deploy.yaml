@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx-v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-nginx-v1
+  template:
+    metadata:
+      labels:
+        app: my-nginx-v1
+    spec:
+      containers:
+      - name: my-nginx-v1
+        image: borland6/my-nginx:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx-v2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-nginx-v2
+  template:
+    metadata:
+      labels:
+        app: my-nginx-v2
+    spec:
+      containers:
+      - name: my-nginx-v2
+        image: borland6/my-nginx:v2
+        ports:
+        - containerPort: 8080
