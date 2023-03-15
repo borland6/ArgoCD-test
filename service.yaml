@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-v1-svc
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: my-nginx-v1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-v2-svc
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: my-nginx-v2
